@@ -9,7 +9,9 @@ class App extends Component {
       { name: 'Max', age: 28},
       { name: 'Manu', age: 29},
       { name: 'Stephanie', age: 26}
-    ]
+    ],
+    otherState: 'some other value',
+    showPersons: false
   }
 
   switchNameHandler = (newName) => {
@@ -32,6 +34,11 @@ class App extends Component {
     })
   }
 
+  togglePersonsHandler = () => {
+    const doesShow = this.state.showPersons;
+    this.setState({showPersons: !doesShow});
+  }
+
   render() {
     const buttonStyle = {
       backgroundColor: 'white',
@@ -47,18 +54,25 @@ class App extends Component {
         <p>jsx only allows a single root Component to be rendered</p>
         <button
           style={buttonStyle}
-          onClick={this.switchNameHandler.bind(this,"Maximilian")}>Switch Name</button>
-        <Person
-          name={this.state.persons[0].name}
-          age={this.state.persons[0].age}/>
-        <Person
-          name={this.state.persons[1].name}
-          age={this.state.persons[1].age}
-          click={this.switchNameHandler.bind(this, "Max!")}
-          changed={this.nameChangedHandler} >My Hobbies: Racing</Person>
-        <Person
-          name={this.state.persons[2].name}
-          age={this.state.persons[2].age}/>
+          onClick={this.togglePersonsHandler}>Toggle Persons</button>
+
+        {
+          this.state.showPersons === true ?
+            <div >
+              <Person
+                name={this.state.persons[0].name}
+                age={this.state.persons[0].age}/>
+              <Person
+                name={this.state.persons[1].name}
+                age={this.state.persons[1].age}
+                click={this.switchNameHandler.bind(this, "Max!")}
+                changed={this.nameChangedHandler} >My Hobbies: Racing</Person>
+              <Person
+                name={this.state.persons[2].name}
+                age={this.state.persons[2].age}/>
+            </div>
+          : null
+        }
       </div>
     );
   }
