@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import './App.css';
+import classes from './App.css';
 import Person from './Person/Person';
 
 class App extends Component {
@@ -69,18 +69,18 @@ class App extends Component {
       buttonStyle.backgroundColor = 'red';
     }
 
-    const classes = [];
+    const assignedClasses = [];
     if (this.state.persons.length <= 2) {
-      classes.push('red');
+      assignedClasses.push(classes.red);
     }
     if (this.state.persons.length <= 1) {
-      classes.push('bold');
+      assignedClasses.push(classes.bold);
     }
 
     return (
-        <div className="App">
+        <div className={classes.App}>
           <h1>Hi, I'm a React app</h1>
-          <p className={classes.join(' ')}>jsx only allows a single root Component to be rendered</p>
+          <p className={assignedClasses.join(' ')}>jsx only allows a single root Component to be rendered</p>
           <button
             style={buttonStyle}
             onClick={this.togglePersonsHandler}>Toggle Persons</button>
