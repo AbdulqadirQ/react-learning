@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import './App.css';
-import Radium from 'radium'
+import Radium, {StyleRoot} from 'radium'
 import Person from './Person/Person';
 
 class App extends Component {
@@ -87,14 +87,16 @@ class App extends Component {
     }
 
     return (
-      <div className="App">
-        <h1>Hi, I'm a React app</h1>
-        <p className={classes.join(' ')}>jsx only allows a single root Component to be rendered</p>
-        <button
-          style={buttonStyle}
-          onClick={this.togglePersonsHandler}>Toggle Persons</button>
-        {persons}
-      </div>
+      <StyleRoot>
+        <div className="App">
+          <h1>Hi, I'm a React app</h1>
+          <p className={classes.join(' ')}>jsx only allows a single root Component to be rendered</p>
+          <button
+            style={buttonStyle}
+            onClick={this.togglePersonsHandler}>Toggle Persons</button>
+          {persons}
+        </div>
+      </StyleRoot>
     );
   }
 }
