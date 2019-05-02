@@ -41,16 +41,9 @@ class App extends Component {
   }
 
   render() {
-    const buttonStyle = {
-      backgroundColor: 'green',
-      color: 'white',
-      font: 'inherit',
-      border: '1px solid blue',
-      padding: '8px',
-      cursor: 'pointer'
-    };
 
     let persons = null;
+    let buttonClass = '';
 
     if (this.state.showPersons) {
       persons = (
@@ -66,7 +59,7 @@ class App extends Component {
         </div>
       );
 
-      buttonStyle.backgroundColor = 'red';
+      buttonClass = classes.Red;
     }
 
     const assignedClasses = [];
@@ -82,7 +75,7 @@ class App extends Component {
           <h1>Hi, I'm a React app</h1>
           <p className={assignedClasses.join(' ')}>jsx only allows a single root Component to be rendered</p>
           <button
-            style={buttonStyle}
+            className={buttonClass}
             onClick={this.togglePersonsHandler}>Toggle Persons</button>
           {persons}
         </div>
