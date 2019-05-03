@@ -348,3 +348,20 @@ const Cockpit = (props) => {
         }, 1000)
     }, []);
 }
+
+## Clean-up:
+- For class-based components, use *componentWillUnmount()*:
+  - is run just before a component is removed from the DOM
+
+- For functional components, `useEffect` can be modified to provide a clean-up sequence through adding an anonymous function:
+```js
+useEffect(() => {
+    console.log('[Cockpit.js] useEffect');
+    setTimeout(() => {
+        alert('Saved data to cloud!');
+    }, 1000);
+    return () => {
+        console.log('[Cockpit.js] cleanup work in useEffect');
+    };
+}, [props.persons]);
+```
