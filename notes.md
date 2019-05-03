@@ -378,3 +378,9 @@ useEffect(() => {
 
 ### PureComponent
 - PureComponent can be imported and extended for a class (instead of Component) if wanting a `shouldComponentUpdate` method which checks for all possible props for which the component should be updated for, all out-the-box.
+
+# How React updates the DOM:
+- Since updating the real DOM in the browser is very expensive, React does this as sparingly as possible.
+- React uses two virtual DOMs: an old Virtual DOM and a newer 'Re-rendered' DOM. A comparison is made between these two virtual DOMs and the Old Virtual DOM is updated if needed (this is fast in comparison to updating the read DOM)
+- The difference is then compared to the real DOM, where another comparison is made. If there is something to update in the real DOM, only that is updated.
+![](./notes_images/react_rendering_to_DOM.PNG)
