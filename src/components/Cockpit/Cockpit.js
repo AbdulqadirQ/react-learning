@@ -10,8 +10,8 @@ const Cockpit = (props) => {
         }, 1000);
         return () => {
             console.log('[Cockpit.js] cleanup work in useEffect');
-        }
-    }, [props.persons]);
+        };
+    }, []);
     // console.log('[Cockput.js...rendering]');
     const assignedClasses = [];
     let buttonClass = '';

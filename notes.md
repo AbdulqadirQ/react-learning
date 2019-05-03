@@ -365,3 +365,8 @@ useEffect(() => {
     };
 }, [props.persons]);
 ```
+
+## Optimisation
+- `shouldComponentUpdate()` can be used for fine-tuning performance by ensuring we only render the components that need to be rendered (i.e. only the ones that are being updated and not ones that aren't)
+- React works by having a virtual DOM to which our changes are committed to. After changes, React compares the virtual DOM to the real DOM and checks if there's been any difference. React would then render any changes that occur between the two DOM's
+- As a result, React already handles performance issues caused by our code attempting to re-render things that haven't changed. However these methods are still called before committed to the virtual DOM, therefore it's best to handle them anyway.
