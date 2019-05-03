@@ -375,3 +375,6 @@ useEffect(() => {
 
 - For functional components:
   - we can wrap the export of a functional component with `React.memo()` which caches the component. If the component hasn't changed, the cached component is returned instead of re-rendering it.
+
+### PureComponent
+- PureComponent can be imported and extended for a class (instead of Component) if wanting a `shouldComponentUpdate` method which checks for all possible props for which the component should be updated for, all out-the-box.
