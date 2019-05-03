@@ -18,7 +18,7 @@ const cockpit = (props) => {
     }
     return (
         <div className={classes.Cockpit}>
-            <h1>Hi, I'm a React app</h1>
+            <h1>{props.appName}</h1>
             <p className={assignedClasses.join(' ')}>jsx only allows a single root Component to be rendered</p>
             <button
                 className={buttonClass}
