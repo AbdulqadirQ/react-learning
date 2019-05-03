@@ -301,3 +301,22 @@ import classes from './App.css';
   - shouldComponentUpdate()
   - componentDidUpdate()
 
+## Component Lifecycle Hooks - On Update
+- These lifecycle hooks are used when either props or state are updated
+
+- *getDerivedStateFromProps(props,state)*
+  - For syncing state to Props
+  - is a niche hook and isn't used too much
+- *shouldComponentUpdate(nextProps, nextState)*
+  - can decide whether or not to continue re-rendering for components
+  - can be used for performance by fine-tuning what needs to be re-rendered
+- *render()*
+  - prepare and structure your jsx code
+  - Also all child components included within render are executed here (and their lifecycle hooks are played out)
+- *getSnapshotBeforeUpdate(prevProps, prevState)*
+  - takes previous props and previous state as input and returns a snapshot object that can be freely configured
+  - is a niche hook and isn't used too much
+  - used for last-minute Dom modifications (e.g. resetting a user's scroll position to before the update happened)
+- *componentDidUpdate()*
+  - signals that the component is done with updating
+  - can cause side-effects once again inside of this
