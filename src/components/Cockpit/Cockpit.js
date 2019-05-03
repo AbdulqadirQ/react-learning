@@ -3,6 +3,7 @@ import classes from './Cockpit.css';
 
 
 const cockpit = (props) => {
+    console.log('[Cockput.js...rendering]');
     const assignedClasses = [];
     let buttonClass = '';
 
