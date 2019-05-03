@@ -320,3 +320,31 @@ import classes from './App.css';
 - *componentDidUpdate()*
   - signals that the component is done with updating
   - can cause side-effects once again inside of this
+
+## React Hooks
+- `useEffect` is the most important hook used after `setState`
+- `useEffect` is a React Hook (not related to Lifecycle hook) which allows functional components to use all the Lifecycle hooks available within class components, all within just `useEffect`
+- `useEffect` is a combination of `componentDidMount` and `componentDidUpdate` in one
+
+- Since `useEffect` may end up running to often due to it being a combination of `componentDidMount` and `componentDidUpdate`, we can configure it so it only runs when needed,
+- e.g: the following `useEffect` is passed in a dependency of `props.person`, so will only run if `props.person` is changed
+```js
+const Cockpit = (props) => {
+    useEffect(() => {
+        console.log('[Cockpit.js] useEffect');
+        setTimeout(() => {
+            alert('Saved data to cloud!');
+        }, 1000)
+    }, [props.persons]);
+}
+```
+
+- e.g2: the following `useEffect` will only run once since an empty list of dependencies is passed in
+- const Cockpit = (props) => {
+    useEffect(() => {
+        console.log('[Cockpit.js] useEffect');
+        setTimeout(() => {
+            alert('Saved data to cloud!');
+        }, 1000)
+    }, []);
+}
