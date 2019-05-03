@@ -1,9 +1,14 @@
 import React from 'react';
 
-const withClass = props => (
-    <div className={props.classes}>
-        {props.children}
-    </div>
-);
+/**
+ * this HoC wrapper class is responsible for adding a div with a given css class
+ */
+const withClass = (WrappedComponent, className) => {
+    return props => (
+        <div className={className}>
+            <WrappedComponent />
+        </div>
+    );
+};
 
 export default withClass;
