@@ -384,3 +384,8 @@ useEffect(() => {
 - React uses two virtual DOMs: an old Virtual DOM and a newer 'Re-rendered' DOM. A comparison is made between these two virtual DOMs and the Old Virtual DOM is updated if needed (this is fast in comparison to updating the read DOM)
 - The difference is then compared to the real DOM, where another comparison is made. If there is something to update in the real DOM, only that is updated.
 ![](./notes_images/react_rendering_to_DOM.PNG)
+
+
+# Higher Order Components
+- HoC's can be used to wrap components to then add additional logic to them
+- By convention HoC classes are prefixed with `With`, e.g. `WithClasses.js`
